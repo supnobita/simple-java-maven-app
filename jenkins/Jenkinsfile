@@ -7,17 +7,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh '/var/jenkins_home/maven/bin/mvn test'
+                echo 'Test state'
+                //sh '/var/jenkins_home/maven/bin/mvn test'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+            //post {
+            //    always {
+            //        junit 'target/surefire-reports/*.xml'
+            //    }
+            //}
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                echo 'Deliver state'
+                //sh './jenkins/scripts/deliver.sh'
             }
         }
     }
