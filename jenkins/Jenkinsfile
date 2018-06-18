@@ -17,13 +17,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test state'
-                //sh '/var/jenkins_home/maven/bin/mvn test'
+                sh '/var/jenkins_home/maven/bin/mvn test'
             }
-            //post {
-            //    always {
-            //        junit 'target/surefire-reports/*.xml'
-            //    }
-            //}
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
         stage('Deliver') {
             steps {
